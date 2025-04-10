@@ -74,12 +74,12 @@ in
         { path = "/System/Applications/TV.app/"; }
         { path = "/System/Applications/Home.app/"; }
         {
-          path = "${config.users.users.${user}.home}/.local/share/";
+          path = "/Users/lmandrelli";
           section = "others";
           options = "--sort name --view grid --display folder";
         }
         {
-          path = "${config.users.users.${user}.home}/.local/share/downloads";
+          path = "/Users/lmandrelli/Downloads";
           section = "others";
           options = "--sort name --view grid --display folder";
         }
