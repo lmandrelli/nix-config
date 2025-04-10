@@ -22,7 +22,7 @@ in
   homebrew = {
     enable = true;
     casks = pkgs.callPackage ./casks.nix {};
-    # onActivation.cleanup = "uninstall";
+    onActivation.cleanup = "uninstall";
 
     # These app IDs are from using the mas CLI app
     # mas = mac app store
@@ -36,13 +36,7 @@ in
     # This message is safe to ignore. (https://github.com/dustinlyons/nixos-config/issues/83)
 
     masApps = {
-      "myCanal" = 694580816;
-      "Final Cut Pro" = 424389933;
-      "Motion" = 434290957;
-      "GoodNotes" = 1444383602;
-      "JW Library"= 672417831;
-      "Luminar Neo" = 1584373150;
-      "Command X" = 6448461551;
+     
     };
   };
 
