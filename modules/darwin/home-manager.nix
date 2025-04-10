@@ -36,13 +36,13 @@ in
     # This message is safe to ignore. (https://github.com/dustinlyons/nixos-config/issues/83)
 
     masApps = {
-      "Amphetamine" = 937984704;
       "myCanal" = 694580816;
       "Final Cut Pro" = 424389933;
       "Motion" = 434290957;
       "GoodNotes" = 1444383602;
-      "JW"= 672417831;
+      "JW Library"= 672417831;
       "Luminar Neo" = 1584373150;
+      "Command X" = 6448461551;
     };
   };
 
@@ -73,13 +73,10 @@ in
     dock = {
       enable = true;
       entries = [
-        { path = "/Applications/Slack.app/"; }
         { path = "/System/Applications/Messages.app/"; }
         { path = "/System/Applications/Facetime.app/"; }
         { path = "/System/Applications/Music.app/"; }
-        { path = "/System/Applications/News.app/"; }
         { path = "/System/Applications/Photos.app/"; }
-        { path = "/System/Applications/Photo Booth.app/"; }
         { path = "/System/Applications/TV.app/"; }
         { path = "/System/Applications/Home.app/"; }
         {

@@ -4,6 +4,7 @@ _:
   # Development Tools
   "homebrew/cask/docker"
   "visual-studio-code"
+  "visual-studio-code@insiders"
   "mongodb-compass"
   "textmate"
   "zed"
@@ -24,7 +25,9 @@ _:
 
   # Productivity Tools
   "raycast"
-  "microsoft-office"
+  "microsoft-word"
+  "microsoft-excel"
+  "microsoft-powerpoint"
   "obsidian"
 
   # Browsers
