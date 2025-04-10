@@ -76,7 +76,6 @@ in
         { path = "/Applications/Slack.app/"; }
         { path = "/System/Applications/Messages.app/"; }
         { path = "/System/Applications/Facetime.app/"; }
-        { path = "${pkgs.alacritty}/Applications/Alacritty.app/"; }
         { path = "/System/Applications/Music.app/"; }
         { path = "/System/Applications/News.app/"; }
         { path = "/System/Applications/Photos.app/"; }
@@ -91,7 +90,12 @@ in
         {
           path = "${config.users.users.${user}.home}/.local/share/downloads";
           section = "others";
-          options = "--sort name --view grid --display stack";
+          options = "--sort name --view grid --display folder";
+        }
+        {
+          path = "/Applications";
+          section = "others";
+          options = "--sort name --view grid --display folder"
         }
       ];
     };

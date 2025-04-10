@@ -4,7 +4,6 @@
 
   - [macOS](#macos)
       - [Updating dependencies with one command](#updating-dependencies-with-one-command)
-      - [Instant Emacs 29 thanks to daemon mode](#instant-emacs-29-thanks-to-daemon-mode)
     - [NixOS](#nixos)
   - [Disclaimer](#disclaimer)
   - [Layout](#layout)
@@ -50,12 +49,10 @@
 - **Managed Homebrew**: Zero maintenance homebrew environment with `nix-darwin` and `nix-homebrew`
 - **Disk Management**: Declarative disk management with `disko`, say goodbye to disk utils
 - **Secrets Management**: Declarative secrets with `agenix` for SSH, PGP, syncthing, and other tools
-- **Super Fast Emacs**: Bleeding edge Emacs that fixes itself, thanks to a [community overlay](https://github.com/nix-community/emacs-overlay)
 - **Built In Home Manager**: `home-manager` module for seamless configuration (no extra clunky CLI steps)
 - **NixOS Environment**: Extensively configured NixOS including clean aesthetic + window animations
 - **Nix Overlays**: [Auto-loading of Nix overlays](https://github.com/dustinlyons/nixos-config/tree/main/overlays): drop a file in a dir and it runs _(great for patches!)_
 - **Declarative Sync**: No-fuss Syncthing: managed keys, certs, and configuration across all platforms
-- **Emacs Literate Configuration**: [Large Emacs literate configuration](https://github.com/dustinlyons/nixos-config/blob/main/modules/shared/config/emacs/config.org) to explore (if that's your thing)
 - **Simplicity and Readability**: Optimized for simplicity and readability in all cases, not small files everywhere
 - **Backed by Continuous Integration**: Flake auto updates weekly if changes don't break starter build
 
@@ -463,7 +460,6 @@ Interested in contributing to this project? Here's how you can help:
 | **Notification Daemon**     | dunst                                           |
 | **Display Manager**         | lightdm                                         |
 | **File Manager**            | thunar                                          |
-| **Text Editor**             | emacs daemon mode                               |
 | **Media Player**            | cider                                           |
 | **Image Viewer**            | feh                                             |
 | **Screenshot Software**     | flameshot                                       |
