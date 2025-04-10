@@ -67,12 +67,23 @@ in
     dock = {
       enable = true;
       entries = [
-        { path = "/System/Applications/Messages.app/"; }
-        { path = "/System/Applications/Facetime.app/"; }
+        { path = "/System/Applications/Bitwarden.app"; }
+        { path = "/System/Applications/Safari.app"; }
+        { path = "/System/Applications/Firefox.app"; }
+        { path = "/System/Applications/Orion.app"; }
+        { path = "/System/Applications/Discord.app"; }
         { path = "/System/Applications/Music.app/"; }
-        { path = "/System/Applications/Photos.app/"; }
-        { path = "/System/Applications/TV.app/"; }
         { path = "/System/Applications/Home.app/"; }
+        { path = "/System/Applications/Microsoft Word.app"; }
+        { path = "/System/Applications/Microsoft Excel.app"; }
+        { path = "/System/Applications/Microsoft Powerpoint.app"; }
+        { path = "/System/Applications/Affinity Designer 2.app"; }
+        { path = "/System/Applications/Affinity Photo 2.app"; }
+        { path = "/System/Applications/Luminar Neo.app"; }
+        { path = "/System/Applications/Visual Studio Code.app"; }
+        { path = "/System/Applications/Zed.app"; }
+        { path = "/System/Applications/Tabby.app"; }
+        { path = "/System/Applications/Warp.app"; }
         {
           path = "/Users/lmandrelli";
           section = "others";
