@@ -95,7 +95,7 @@ in
         {
           path = "/Applications";
           section = "others";
-          options = "--sort name --view grid --display folder"
+          options = "--sort name --view grid --display folder";
         }
       ];
     };
