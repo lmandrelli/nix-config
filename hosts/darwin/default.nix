@@ -39,7 +39,6 @@ let user = "lmandrelli"; in
   environment.systemPackages = with pkgs; [
     agenix.packages."${pkgs.system}".default
   ] ++ (import ../../modules/shared/packages.nix { inherit pkgs; });
-  };
 
   system = {
     stateVersion = 4;
