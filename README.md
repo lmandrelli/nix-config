@@ -1,5 +1,7 @@
-
-
+# Uninstall (if necessary)
+```sh
+/nix/nix-installer uninstall
+```
 ## Table of Contents
 
   - [macOS](#macos)
