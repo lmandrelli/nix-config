@@ -67,7 +67,7 @@ in
     dock = {
       enable = true;
       entries = [
-        { path = "/System/Applications/Bitwarden.app"; }
+        { path = "/Applications/Bitwarden.app"; }
         { path = "/Applications/Safari.app"; }
         { path = "/Applications/Firefox.app"; }
         { path = "/Applications/Orion.app"; }
