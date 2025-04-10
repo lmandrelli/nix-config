@@ -1,28 +1,8 @@
-# General Purpose Nix Configuration (macOS + NixOS)
-[![Build Starter Template](https://github.com/dustinlyons/nixos-config/actions/workflows/build.yml/badge.svg)](https://github.com/dustinlyons/nixos-config/actions/workflows/build.yml)
-[![Statix Lint](https://github.com/dustinlyons/nixos-config/actions/workflows/lint.yml/badge.svg)](https://github.com/dustinlyons/nixos-config/actions/workflows/lint.yml)
-
-## Overview
-Hey, you made it! Welcome. 🤓
-
-Nix is a powerful package manager for Linux and Unix systems that ensures reproducible, declarative, and reliable software management. 
-
-This repository contains configuration for a general-purpose development environment that runs Nix on macOS, NixOS, or both simultaneously.
-
-I use it daily on my 🧑🏻‍💻 Macbook Pro and an x86 PC in my home office. It also runs as a VM on your Mac. Many others have reported that it's working for them too.
-
-Check out the step-by-step commands below to get started!
 
 
 ## Table of Contents
 
-- [Nix Config for macOS + NixOS](#nix-config-for-macos--nixos)
-  - [Overview](#overview)
-  - [Table of Contents](#table-of-contents)
-  - [Features](#features)
-  - [Testimonials](#testimonials)
-  - [Videos](#videos)
-    - [macOS](#macos)
+  - [macOS](#macos)
       - [Updating dependencies with one command](#updating-dependencies-with-one-command)
       - [Instant Emacs 29 thanks to daemon mode](#instant-emacs-29-thanks-to-daemon-mode)
     - [NixOS](#nixos)
@@ -57,8 +37,6 @@ Check out the step-by-step commands below to get started!
   - [Appendix](#appendix)
     - [Why Nix Flakes](#why-nix-flakes)
     - [NixOS Components](#nixos-components)
-    - [Support](#support)
-    - [Stars](#stars)
 
 
 
@@ -80,44 +58,6 @@ Check out the step-by-step commands below to get started!
 - **Emacs Literate Configuration**: [Large Emacs literate configuration](https://github.com/dustinlyons/nixos-config/blob/main/modules/shared/config/emacs/config.org) to explore (if that's your thing)
 - **Simplicity and Readability**: Optimized for simplicity and readability in all cases, not small files everywhere
 - **Backed by Continuous Integration**: Flake auto updates weekly if changes don't break starter build
-
-## Testimonials
-
-![Screenshot 2024-10-31 at 9 32 38 AM](https://github.com/user-attachments/assets/0fb34422-adcb-41e3-b6a8-dcfebf0f40b8)
-
-![Screenshot 2024-10-31 at 11 07 07 AM](https://github.com/user-attachments/assets/53873d42-de6e-4368-9184-c9b71b6ebd01)
-
-![Screenshot 2024-10-31 at 9 33 27 AM](https://github.com/user-attachments/assets/eaf19ca6-2fb9-4536-98b6-8df70aa04039)
-
-![Screenshot 2024-10-31 at 11 00 11 AM](https://github.com/user-attachments/assets/8f306a62-5a89-4f10-ab08-c151e7951c27)
-
-![Screenshot 2025-01-28 at 1 56 59 PM](https://github.com/user-attachments/assets/14d29d81-53b1-4e0e-b8f7-189677e3a36c)
-
-## Videos
-### macOS
-#### Updating dependencies with one command
-https://github.com/dustinlyons/nixos-config/assets/1292576/2168d482-6eea-4b51-adc1-2ef1291b6598
-
-#### Instant Emacs 29 thanks to daemon mode
-- **GUI**
-
-https://github.com/dustinlyons/nixos-config/assets/1292576/66001066-2bbf-4492-bc9e-60ea1abeb987
-
-- **Terminal**
-
-https://github.com/dustinlyons/nixos-config/assets/1292576/d96f59ce-f540-4f14-bc61-6126a74f9f52
-
-### NixOS
-
-https://github.com/dustinlyons/nixos-config/assets/1292576/fa54a87f-5971-41ee-98ce-09be048018b8
-
-## Disclaimer
-Installing Nix on macOS will create an entirely separate volume. It may exceed many gigabytes in size. 
-
-Some folks don't like this. If this is you, turn back now!
-
-> [!NOTE]
-> Don't worry, you can always [uninstall](https://github.com/DeterminateSystems/nix-installer#uninstalling) Nix later.
 
 ## Layout
 ```
@@ -527,18 +467,3 @@ Interested in contributing to this project? Here's how you can help:
 | **Media Player**            | cider                                           |
 | **Image Viewer**            | feh                                             |
 | **Screenshot Software**     | flameshot                                       |
-
-### License
-This project is released under the [BSD-3-Clause license](https://github.com/dustinlyons/nixos-config/blob/main/LICENSE).
-
-### Support
-Did you find my project useful? Your support is appreciated.
-
-
-<a href="https://www.buymeacoffee.com/dustinlyons1" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
-
-### Stars
-
-> "All we have to decide is what to do with the time that is given us." - J.R.R. Tolkien
-
-[![Star History Chart](https://api.star-history.com/svg?repos=dustinlyons/nixos-config&type=Date)](https://star-history.com/#dustinlyons/nixos-config&Date)
