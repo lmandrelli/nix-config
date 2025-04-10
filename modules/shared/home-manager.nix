@@ -66,7 +66,7 @@ let name = "Luca Mandrelli";
     extraConfig = {
       init.defaultBranch = "main";
       core = {
-	    editor = "vim";
+	    editor = "nano";
         autocrlf = "input";
       };
       commit.gpgsign = true;
