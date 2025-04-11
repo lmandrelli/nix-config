@@ -8,6 +8,7 @@ with pkgs; [
   wget
   zip
   gnumake
+  imagemagick
 
   # Encryption and security tools
   age
