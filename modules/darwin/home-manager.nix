@@ -87,12 +87,12 @@ in
         {
           path = "/Users/lmandrelli";
           section = "others";
-          options = "--sort name --view grid --display folder";
+          options = "--sort name --view list --display folder";
         }
         {
           path = "/Users/lmandrelli/Downloads";
           section = "others";
-          options = "--sort name --view grid --display folder";
+          options = "--sort name --view fan --display folder";
         }
         {
           path = "/Applications";
