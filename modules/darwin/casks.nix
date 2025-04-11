@@ -31,7 +31,7 @@ _:
   "obsidian"
 
   # Browsers
-  "chromium"
+  "google-chrome"
   "firefox"
   "orion"
   
