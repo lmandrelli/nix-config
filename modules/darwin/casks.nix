@@ -44,7 +44,6 @@ _:
 
   # Utilities
   "audacity"
-  "bitwarden"
   "handbrake"
   "mac-mouse-fix@2"
   "obs"
