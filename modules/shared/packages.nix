@@ -9,6 +9,7 @@ with pkgs; [
   zip
   gnumake
   imagemagick
+  lld
 
   # Encryption and security tools
   age
