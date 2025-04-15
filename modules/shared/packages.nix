@@ -11,7 +11,6 @@ with pkgs; [
   imagemagick
   lld
   openssl
-  pkg-config
 
   # Encryption and security tools
   age
