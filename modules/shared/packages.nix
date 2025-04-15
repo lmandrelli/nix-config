@@ -10,6 +10,7 @@ with pkgs; [
   gnumake
   imagemagick
   lld
+  openssl
 
   # Encryption and security tools
   age
