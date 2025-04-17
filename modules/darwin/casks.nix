@@ -20,7 +20,6 @@ _:
   # Entertainment Tools
   "vlc"
   "steam"
-  "mythic"
   "parsec"
 
   # Productivity Tools
