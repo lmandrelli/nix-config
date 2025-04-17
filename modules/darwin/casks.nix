@@ -22,6 +22,7 @@ _:
   "steam"
   "parsec"
   "CrossOver"
+  "playcover-community"
 
   # Productivity Tools
   "raycast"
