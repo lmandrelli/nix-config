@@ -10,7 +10,7 @@ with pkgs; [
   gnumake
   imagemagick
   lld
-  openssl
+  baobab
 
   # Encryption and security tools
   age
