@@ -21,6 +21,7 @@ _:
   "vlc"
   "steam"
   "parsec"
+  "CrossOver"
 
   # Productivity Tools
   "raycast"
