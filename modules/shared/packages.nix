@@ -29,6 +29,9 @@ with pkgs; [
   nodePackages.prettier
   nodejs
 
+  # but i also like bun ;)
+  bun
+
   # Text and terminal utilities
   jetbrains-mono
   ripgrep
