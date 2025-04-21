@@ -54,8 +54,8 @@ let user = "lmandrelli"; in
         InitialKeyRepeat = 15;
 
         "com.apple.mouse.tapBehavior" = 1;
-        "com.apple.sound.beep.volume" = 0.5;
-        "com.apple.sound.beep.feedback" = 1;
+        "com.apple.sound.beep.volume" = 1.0;
+        "com.apple.sound.beep.feedback" = true;
       };
 
       dock = {
@@ -74,6 +74,12 @@ let user = "lmandrelli"; in
       trackpad = {
         Clicking = true;
         TrackpadThreeFingerDrag = false;
+      };
+    };
+
+    activationScripts = {
+      suppressStartupSound = {
+        text = "nvram StartupMute=%01";
       };
     };
   };
