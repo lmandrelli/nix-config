@@ -54,8 +54,8 @@ let user = "lmandrelli"; in
         InitialKeyRepeat = 15;
 
         "com.apple.mouse.tapBehavior" = 1;
-        "com.apple.sound.beep.volume" = 0.0;
-        "com.apple.sound.beep.feedback" = 0;
+        "com.apple.sound.beep.volume" = 0.5;
+        "com.apple.sound.beep.feedback" = 1;
       };
 
       dock = {
@@ -63,16 +63,17 @@ let user = "lmandrelli"; in
         show-recents = false;
         launchanim = true;
         orientation = "bottom";
-        tilesize = 48;
+        tilesize = 38;
       };
 
       finder = {
-        _FXShowPosixPathInTitle = false;
+        _FXShowPosixPathInTitle = true;
+        AppleShowAllFiles = true;
       };
 
       trackpad = {
         Clicking = true;
-        TrackpadThreeFingerDrag = true;
+        TrackpadThreeFingerDrag = false;
       };
     };
   };
