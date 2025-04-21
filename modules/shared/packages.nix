@@ -56,6 +56,9 @@ with pkgs; [
   go
   go-task
 
+  # Java (Malheuresement)
+  jdk
+
   # To test
   lazygit
   lazydocker
