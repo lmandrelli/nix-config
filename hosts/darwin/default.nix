@@ -55,7 +55,7 @@ let user = "lmandrelli"; in
 
         "com.apple.mouse.tapBehavior" = 1;
         "com.apple.sound.beep.volume" = 1.0;
-        "com.apple.sound.beep.feedback" = true;
+        "com.apple.sound.beep.feedback" = 1;
       };
 
       dock = {
