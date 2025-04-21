@@ -63,7 +63,7 @@ let user = "lmandrelli"; in
         show-recents = false;
         launchanim = true;
         orientation = "bottom";
-        tilesize = 38;
+        tilesize = 44;
       };
 
       finder = {
