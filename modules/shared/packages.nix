@@ -11,6 +11,7 @@ with pkgs; [
   imagemagick
   lld
   baobab
+  direnv
 
   # Encryption and security tools
   age
