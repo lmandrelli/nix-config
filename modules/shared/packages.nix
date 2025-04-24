@@ -45,7 +45,6 @@ with pkgs; [
   # Python packages
   python3
   virtualenv
-  pipx
 
   # Rust + Cargo
   rustc
@@ -64,4 +63,7 @@ with pkgs; [
   # To test
   lazygit
   lazydocker
+
+  # Cyber
+  exegol 
 ]

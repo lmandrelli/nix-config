@@ -49,6 +49,7 @@ _:
   "mac-mouse-fix@2"
   "obs"
   "ollama"
+  "xquartz"
   "wireshark"
 
   # Project-related (i will get rid of it asap)
