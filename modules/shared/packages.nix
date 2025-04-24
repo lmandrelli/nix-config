@@ -45,6 +45,7 @@ with pkgs; [
   # Python packages
   python3
   virtualenv
+  pipx
 
   # Rust + Cargo
   rustc
