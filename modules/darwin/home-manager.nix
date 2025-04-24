@@ -71,6 +71,7 @@ in
         { path = "/Applications/Orion.app"; }
         { path = "/Applications/Firefox.app"; }
         { path = "/Applications/Discord.app"; }
+        { path = "/Applications/Mail.app"; }
         { path = "/System/Applications/Music.app/"; }
         { path = "/System/Applications/Home.app/"; }
         { path = "/Applications/Microsoft Word.app"; }
