@@ -92,7 +92,7 @@ in
         {
           path = "/Users/lmandrelli/Downloads";
           section = "others";
-          options = "--sort name --view fan --display folder";
+          options = "--sort dateadded --view fan --display folder";
         }
         {
           path = "/Applications";
