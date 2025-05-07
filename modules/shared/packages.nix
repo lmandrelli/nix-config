@@ -12,6 +12,7 @@ with pkgs; [
   lld
   baobab
   direnv
+  typst
 
   # Encryption and security tools
   age
