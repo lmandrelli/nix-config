@@ -36,8 +36,12 @@ with pkgs; [
   # but i also like bun ;)
   bun
 
-  # Text and terminal utilities
+  # Fonts
   jetbrains-mono
+  nerd-fonts-jetbrains-mono
+  nerd-fonts-meslo-lg
+  
+  # Text and terminal utilities
   ripgrep
   tree
   tmux
