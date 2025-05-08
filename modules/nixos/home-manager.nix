@@ -6,19 +6,23 @@ let
   shared-programs = import ../shared/home-manager.nix { inherit config pkgs lib; };
   shared-files = import ../shared/files.nix { inherit config pkgs; };
 
-  polybar-user_modules = builtins.readFile (pkgs.substituteAll {
+  polybar-user_modules = builtins.readFile (pkgs.replaceVars {
     src = ./config/polybar/user_modules.ini;
-    packages = "${xdg_configHome}/polybar/bin/check-nixos-updates.sh";
-    searchpkgs = "${xdg_configHome}/polybar/bin/search-nixos-updates.sh";
-    launcher = "${xdg_configHome}/polybar/bin/launcher.sh";
-    powermenu = "${xdg_configHome}/rofi/bin/powermenu.sh";
-    calendar = "${xdg_configHome}/polybar/bin/popup-calendar.sh";
+    vars = {
+      packages = "${xdg_configHome}/polybar/bin/check-nixos-updates.sh";
+      searchpkgs = "${xdg_configHome}/polybar/bin/search-nixos-updates.sh";
+      launcher = "${xdg_configHome}/polybar/bin/launcher.sh";
+      powermenu = "${xdg_configHome}/rofi/bin/powermenu.sh";
+      calendar = "${xdg_configHome}/polybar/bin/popup-calendar.sh";
+    };
   });
 
-  polybar-config = pkgs.substituteAll {
+  polybar-config = pkgs.replaceVars {
     src = ./config/polybar/config.ini;
-    font0 = "DejaVu Sans:size=12;3";
-    font1 = "feather:size=12;3"; # from overlay
+    vars = {
+      font0 = "DejaVu Sans:size=12;3";
+      font1 = "feather:size=12;3"; # from overlay
+    };
   };
 
   polybar-modules = builtins.readFile ./config/polybar/modules.ini;
