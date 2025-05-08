@@ -14,6 +14,7 @@ with pkgs; [
   direnv
   typst
   nixd
+  nil
 
   # Encryption and security tools
   age
