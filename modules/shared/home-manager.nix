@@ -60,20 +60,97 @@ let name = "Luca Mandrelli";
 
   git = {
     enable = true;
-    ignores = [ "*.swp" ];
     userName = name;
     userEmail = email;
-    lfs = {
-      enable = true;
-    };
+    lfs.enable = true;
+
+    ignores = [
+      # direnv
+      ".direnv"
+      ".envrc"
+
+      # Linux
+      "*~"
+      ".fuse_hidden*"
+      ".directory" 
+      ".Trash-*"
+      ".nfs*"
+
+      # macOS
+      ".DS_Store"
+      ".AppleDouble"
+      ".LSOverride"
+      "Icon"
+      "._*"
+      ".DocumentRevisions-V100"
+      ".fseventsd"
+      ".Spotlight-V100"
+      ".TemporaryItems"
+      ".Trashes"
+      ".VolumeIcon.icns"
+      ".com.apple.timemachine.donotpresent"
+      ".AppleDB"
+      ".AppleDesktop"
+      "Network Trash Folder"
+      "Temporary Items"
+      ".apdisk"
+      "*.icloud"
+
+      # VSCode
+      ".vscode/*"
+      "!.vscode/settings.json"
+      "!.vscode/tasks.json"
+      "!.vscode/launch.json"
+      "!.vscode/extensions.json"
+      "!.vscode/*.code-snippets"
+      ".history/"
+      "*.vsix"
+      ".history"
+      ".ionide"
+
+      # Nix
+      "result"
+      "result-*"
+      ".direnv/"
+      ".pre-commit-config.yaml"
+
+      # Zed
+      ".zed/"
+
+      # Editor/IDE
+      ".idea/"
+      "*.swp"
+      "*.swo"
+      "*~"
+      ".*.sw[a-z]"
+
+      # Tags
+      "TAGS"
+      ".TAGS"
+      "!TAGS/"
+      "tags"
+      ".tags"
+      "!tags/"
+      "gtags.files"
+      "GTAGS"
+      "GRTAGS"
+      "GPATH"
+      "GSYMS"
+      "cscope.files"
+      "cscope.out"
+      "cscope.in.out"
+      "cscope.po.out"
+    ];
+
     extraConfig = {
       init.defaultBranch = "main";
       core = {
-	    editor = "nano";
+        editor = "zed";
         autocrlf = "input";
       };
       pull.rebase = false;
       rebase.autoStash = true;
+      push.autoSetupRemote = true;
     };
   };
 
