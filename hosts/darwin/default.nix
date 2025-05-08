@@ -1,4 +1,4 @@
-{ agenix, config, pkgs, ... }:
+{ config, pkgs, ... }:
 
 let user = "lmandrelli"; in
 
@@ -7,7 +7,6 @@ let user = "lmandrelli"; in
   imports = [
     ../../modules/darwin/home-manager.nix
     ../../modules/shared
-     agenix.darwinModules.default
   ];
 
   # Setup user, packages, programs
