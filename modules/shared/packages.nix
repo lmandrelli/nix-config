@@ -38,8 +38,8 @@ with pkgs; [
 
   # Fonts
   jetbrains-mono
-  nerd-fonts-jetbrains-mono
-  nerd-fonts-meslo-lg
+  nerd-fonts.jetbrains-mono
+  nerd-fonts.meslo-lg
   
   # Text and terminal utilities
   ripgrep
