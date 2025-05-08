@@ -13,6 +13,7 @@ with pkgs; [
   baobab
   direnv
   typst
+  nixd
 
   # Encryption and security tools
   age
