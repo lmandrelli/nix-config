@@ -85,6 +85,15 @@
             home-manager.darwinModules.home-manager
             nix-homebrew.darwinModules.nix-homebrew
             {
+              nixpkgs.overlays = [ 
+                (final: prev: {
+                  haskell = prev.haskell // {
+                    packageOverrides = prev.lib.composeExtensions (prev.haskell.packageOverrides or (_: _: {})) (hfinal: hprev: {
+                      system-fileio = prev.haskell.lib.dontCheck hprev.system-fileio;
+                    });
+                  };
+                })
+              ];
               nix-homebrew = {
                 inherit user;
                 enable = true;
