@@ -73,4 +73,6 @@ with pkgs; [
 
   # Cyber
   exegol 
+
+  tamarin-prover
 ]
