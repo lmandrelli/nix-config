@@ -113,6 +113,7 @@ let name = "Luca Mandrelli";
       "result-*"
       ".direnv/"
       ".pre-commit-config.yaml"
+      "flake.lock"
 
       # Zed
       ".zed/"
