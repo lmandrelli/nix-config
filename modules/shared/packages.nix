@@ -11,7 +11,6 @@ with pkgs; [
   imagemagick
   lld
   baobab
-  nix-direnv
   typst
   nixd
   nil

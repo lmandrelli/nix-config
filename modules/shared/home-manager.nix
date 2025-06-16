@@ -139,6 +139,10 @@ let name = "Luca Mandrelli";
       "cscope.out"
       "cscope.in.out"
       "cscope.po.out"
+
+      # Roo Code
+      ".roo"
+      ".roorules"
     ];
 
     extraConfig = {
