@@ -27,8 +27,6 @@ let name = "Luca Mandrelli";
         . /nix/var/nix/profiles/default/etc/profile.d/nix.sh
       fi
       
-      eval "$(direnv hook zsh)"
-
       # Define variables for directories
       export PATH=$HOME/.pnpm-packages/bin:$HOME/.pnpm-packages:$PATH
       export PATH=$HOME/.npm-packages/bin:$HOME/bin:$PATH
@@ -267,6 +265,18 @@ let name = "Luca Mandrelli";
 
   ssh = {
     enable = true;
+  };
+
+  direnv = {
+    enable = true;
+    enableZshIntegration = true;
+    nix-direnv.enable = true;
+    config = {
+      global = {
+        # Enable nix-direnv manual reload mode system-wide
+        nix_direnv_manual_reload = true;
+      };
+    };
   };
 
   tmux = {
