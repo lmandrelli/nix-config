@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, inputs, ... }:
 
 let
   user = "lmandrelli";
@@ -18,6 +18,7 @@ in
   # Hyprland configuration
   wayland.windowManager.hyprland = {
     enable = true;
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     settings = {
       # Monitor configuration
       monitor = ",preferred,auto,auto";
