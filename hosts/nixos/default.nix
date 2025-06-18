@@ -16,7 +16,7 @@ let user = "lmandrelli"; in
       };
       efi.canTouchEfiVariables = true;
     };
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages;
   };
 
   # Set your time zone.
@@ -60,12 +60,12 @@ let user = "lmandrelli"; in
       enable32Bit = true;
     };
     nvidia = {
-      open = true; # Use open-source kernel drivers
+      open = true; # Use open-source drivers for RTX 5070 support
       modesetting.enable = true;
       powerManagement.enable = false;
       powerManagement.finegrained = false;
       nvidiaSettings = true;
-      package = config.boot.kernelPackages.nvidiaPackages.beta;
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
     };
   };
 
