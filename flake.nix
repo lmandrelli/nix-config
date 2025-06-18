@@ -1,8 +1,11 @@
 {
-  description = "Starter Configuration for MacOS and NixOS";
+  description = "Configuration for MacOS and NixOS";
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    home-manager.url = "github:nix-community/home-manager";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    home-manager = {
+      url = "github:nix-community/home-manager/release-25.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     darwin = {
       url = "github:LnL7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -21,13 +24,13 @@
     homebrew-cask = {
       url = "github:homebrew/homebrew-cask";
       flake = false;
-    }; 
-    disko = {
-      url = "github:nix-community/disko";
+    };
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  outputs = { self, darwin, nix-homebrew, homebrew-bundle, homebrew-core, homebrew-cask, home-manager, nixpkgs, disko } @inputs:
+  outputs = { self, darwin, nix-homebrew, homebrew-bundle, homebrew-core, homebrew-cask, home-manager, nixpkgs, hyprland } @inputs:
     let
       user = "lmandrelli";
       linuxSystems = [ "x86_64-linux" "aarch64-linux" ];
@@ -115,11 +118,12 @@
         inherit system;
         specialArgs = inputs;
         modules = [
-          disko.nixosModules.disko
+          hyprland.nixosModules.default
           home-manager.nixosModules.home-manager {
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
+              extraSpecialArgs = inputs;
               users.${user} = import ./modules/nixos/home-manager.nix;
             };
           }
