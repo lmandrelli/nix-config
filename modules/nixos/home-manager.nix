@@ -175,6 +175,12 @@ in
     };
   };
 
+  # Rofi for Wayland
+  programs.rofi = {
+    enable = true;
+    package = pkgs.rofi-wayland;
+  };
+
   # Mako (notifications)
   services.mako = {
     enable = true;
@@ -197,11 +203,6 @@ in
     };
   };
 
-  programs = shared-programs // { 
-    # Rofi for Wayland
-    rofi = {
-      enable = true;
-      package = pkgs.rofi-wayland;
-    };
-  };
+  # Import shared programs
+  imports = [ shared-programs ];
 }
