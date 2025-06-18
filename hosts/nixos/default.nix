@@ -118,11 +118,6 @@ let user = "lmandrelli"; in
         "video"
       ];
       shell = pkgs.zsh;
-      openssh.authorizedKeys.keys = keys;
-    };
-
-    root = {
-      openssh.authorizedKeys.keys = keys;
     };
   };
 
