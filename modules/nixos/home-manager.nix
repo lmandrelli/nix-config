@@ -109,78 +109,80 @@ in
     };
   };
 
-  # Waybar
-  programs.waybar = {
-    enable = true;
-    settings = {
-      mainBar = {
-        layer = "top";
-        position = "top";
-        height = 30;
-        modules-left = ["hyprland/workspaces"];
-        modules-center = ["clock"];
-        modules-right = ["pulseaudio" "network" "battery" "tray"];
+  # Extend programs with additional configurations
+  programs = shared-programs // {
+    # Waybar
+    waybar = {
+      enable = true;
+      settings = {
+        mainBar = {
+          layer = "top";
+          position = "top";
+          height = 30;
+          modules-left = ["hyprland/workspaces"];
+          modules-center = ["clock"];
+          modules-right = ["pulseaudio" "network" "battery" "tray"];
 
-        "hyprland/workspaces" = {
-          disable-scroll = true;
-          all-outputs = true;
-        };
-
-        clock = {
-          tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
-          format-alt = "{:%Y-%m-%d}";
-        };
-
-        pulseaudio = {
-          format = "{volume}% {icon} {format_source}";
-          format-bluetooth = "{volume}% {icon} {format_source}";
-          format-bluetooth-muted = " {icon} {format_source}";
-          format-muted = " {format_source}";
-          format-source = "{volume}% ";
-          format-source-muted = "";
-          format-icons = {
-            headphone = "";
-            hands-free = "";
-            headset = "";
-            phone = "";
-            portable = "";
-            car = "";
-            default = ["" "" ""];
+          "hyprland/workspaces" = {
+            disable-scroll = true;
+            all-outputs = true;
           };
-          on-click = "pavucontrol";
-        };
 
-        network = {
-          format-wifi = "{essid} ({signalStrength}%) ";
-          format-ethernet = "{ipaddr}/{cidr} ";
-          tooltip-format = "{ifname} via {gwaddr} ";
-          format-linked = "{ifname} (No IP) ";
-          format-disconnected = "Disconnected ⚠";
-          format-alt = "{ifname}: {ipaddr}/{cidr}";
-        };
-
-        battery = {
-          states = {
-            good = 95;
-            warning = 30;
-            critical = 15;
+          clock = {
+            tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
+            format-alt = "{:%Y-%m-%d}";
           };
-          format = "{capacity}% {icon}";
-          format-charging = "{capacity}% ";
-          format-plugged = "{capacity}% ";
-          format-alt = "{time} {icon}";
-          format-icons = ["" "" "" "" ""];
+
+          pulseaudio = {
+            format = "{volume}% {icon} {format_source}";
+            format-bluetooth = "{volume}% {icon} {format_source}";
+            format-bluetooth-muted = " {icon} {format_source}";
+            format-muted = " {format_source}";
+            format-source = "{volume}% ";
+            format-source-muted = "";
+            format-icons = {
+              headphone = "";
+              hands-free = "";
+              headset = "";
+              phone = "";
+              portable = "";
+              car = "";
+              default = ["" "" ""];
+            };
+            on-click = "pavucontrol";
+          };
+
+          network = {
+            format-wifi = "{essid} ({signalStrength}%) ";
+            format-ethernet = "{ipaddr}/{cidr} ";
+            tooltip-format = "{ifname} via {gwaddr} ";
+            format-linked = "{ifname} (No IP) ";
+            format-disconnected = "Disconnected ⚠";
+            format-alt = "{ifname}: {ipaddr}/{cidr}";
+          };
+
+          battery = {
+            states = {
+              good = 95;
+              warning = 30;
+              critical = 15;
+            };
+            format = "{capacity}% {icon}";
+            format-charging = "{capacity}% ";
+            format-plugged = "{capacity}% ";
+            format-alt = "{time} {icon}";
+            format-icons = ["" "" "" "" ""];
+          };
         };
       };
     };
-  };
 
-  # Rofi for Wayland
-  programs.rofi = {
-    enable = true;
-    package = pkgs.rofi-wayland;
+    # Rofi for Wayland
+    rofi = {
+      enable = true;
+      package = pkgs.rofi-wayland;
+    };
   };
-
   # Mako (notifications)
   services.mako = {
     enable = true;
@@ -202,7 +204,4 @@ in
       package = pkgs.adwaita-icon-theme;
     };
   };
-
-  # Import shared programs
-  imports = [ shared-programs ];
 }
