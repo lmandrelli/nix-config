@@ -1,4 +1,4 @@
-{ config, pkgs, lib, inputs, ... }:
+{ config, pkgs, lib, ... }:
 
 let
   user = "lmandrelli";
@@ -186,10 +186,12 @@ in
   # Mako (notifications)
   services.mako = {
     enable = true;
-    defaultTimeout = 5000;
-    backgroundColor = "#2e3440";
-    textColor = "#d8dee9";
-    borderColor = "#88c0d0";
+    settings = {
+      default-timeout = 5000;
+      background-color = "#2e3440";
+      text-color = "#d8dee9";
+      border-color = "#88c0d0";
+    };
   };
 
   # GTK theme

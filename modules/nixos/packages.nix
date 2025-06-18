@@ -70,7 +70,7 @@ shared-packages ++ [
   pavucontrol
   networkmanagerapplet
   blueman
-  thunar
+  xfce.thunar
   
   # System tools
   htop
