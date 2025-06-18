@@ -124,7 +124,7 @@
               useGlobalPkgs = true;
               useUserPackages = true;
               extraSpecialArgs = inputs;
-              users.${user} = { config, pkgs, lib, inputs, ... }: import ./modules/nixos/home-manager.nix { inherit config pkgs lib inputs; };
+              users.${user} = import ./modules/nixos/home-manager.nix;
             };
           }
           ./hosts/nixos
