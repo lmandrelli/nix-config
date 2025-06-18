@@ -25,12 +25,8 @@
       url = "github:homebrew/homebrew-cask";
       flake = false;
     };
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
-  outputs = { self, darwin, nix-homebrew, homebrew-bundle, homebrew-core, homebrew-cask, home-manager, nixpkgs, hyprland } @inputs:
+  outputs = { self, darwin, nix-homebrew, homebrew-bundle, homebrew-core, homebrew-cask, home-manager, nixpkgs } @inputs:
     let
       user = "lmandrelli";
       linuxSystems = [ "x86_64-linux" "aarch64-linux" ];
@@ -118,7 +114,6 @@
         inherit system;
         specialArgs = inputs;
         modules = [
-          hyprland.nixosModules.default
           home-manager.nixosModules.home-manager {
             home-manager = {
               useGlobalPkgs = true;
