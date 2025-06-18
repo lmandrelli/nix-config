@@ -1,4 +1,4 @@
-{ config, pkgs, lib, inputs, ... }:
+{ config, pkgs, lib, ... }:
 
 let
   user = "lmandrelli";
@@ -182,6 +182,7 @@ in
       package = pkgs.rofi-wayland;
     };
   };
+
   # Mako (notifications)
   services.mako = {
     enable = true;
