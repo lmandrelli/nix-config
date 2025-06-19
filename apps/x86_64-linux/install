@@ -1,0 +1,43 @@
+#!/bin/sh -e
+
+GREEN='\033[1;32m'
+RED='\033[1;31m'
+YELLOW='\033[1;33m'
+NC='\033[0m'
+
+echo -e "${YELLOW}Installing NixOS with Lanzaboote...${NC}"
+
+# Check if we're running as root
+if [ "$(id -u)" -ne 0 ]; then
+    echo -e "${RED}Error: This script must be run as root (sudo)${NC}"
+    exit 1
+fi
+
+# Check if we're in the correct directory
+if [ ! -f "flake.nix" ]; then
+    echo -e "${RED}Error: flake.nix not found. Please run from the nixos-config directory.${NC}"
+    exit 1
+fi
+
+echo -e "${YELLOW}Step 1: Building NixOS configuration...${NC}"
+nixos-rebuild build --flake .#x86_64-linux
+
+echo -e "${YELLOW}Step 2: Installing bootloader with Lanzaboote...${NC}"
+# This will fail if secure boot keys are not set up
+if ! nixos-rebuild switch --flake .#x86_64-linux; then
+    echo -e "${RED}Installation failed. This is likely due to missing secure boot keys.${NC}"
+    echo -e "${YELLOW}Please follow these steps:${NC}"
+    echo -e "1. Install sbctl: nix-shell -p sbctl"
+    echo -e "2. Create keys: sudo ./apps/x86_64-linux/create-keys"
+    echo -e "3. Copy keys: sudo ./apps/x86_64-linux/copy-keys"
+    echo -e "4. Check status: ./apps/x86_64-linux/check-keys"
+    echo -e "5. Try installation again"
+    exit 1
+fi
+
+echo -e "${GREEN}NixOS installation with Lanzaboote completed successfully!${NC}"
+echo -e "${YELLOW}Next steps:${NC}"
+echo -e "1. Reboot your system"
+echo -e "2. Enter BIOS/UEFI settings"
+echo -e "3. Enable Secure Boot"
+echo -e "4. Verify with: sbctl status"

@@ -1,0 +1,56 @@
+#!/bin/sh -e
+
+GREEN='\033[1;32m'
+RED='\033[1;31m'
+YELLOW='\033[1;33m'
+NC='\033[0m'
+
+echo -e "${YELLOW}Creating Secure Boot keys for Lanzaboote...${NC}"
+
+# Check if sbctl is available
+if ! command -v sbctl > /dev/null 2>&1; then
+    echo -e "${RED}Error: sbctl not found. Please install sbctl first.${NC}"
+    echo -e "${YELLOW}Run: nix-shell -p sbctl${NC}"
+    exit 1
+fi
+
+# Check if we're running as root
+if [ "$(id -u)" -ne 0 ]; then
+    echo -e "${RED}Error: This script must be run as root (sudo)${NC}"
+    exit 1
+fi
+
+# Create secure boot keys
+echo -e "${YELLOW}Creating secure boot keys...${NC}"
+sbctl create-keys
+
+echo -e "${YELLOW}Enrolling keys...${NC}"
+sbctl enroll-keys --microsoft
+
+# Create the PKI bundle directory for Lanzaboote
+echo -e "${YELLOW}Creating PKI bundle for Lanzaboote...${NC}"
+mkdir -p /etc/secureboot
+
+# Copy the keys to the expected location
+if [ -d "/usr/share/secureboot" ]; then
+    cp -r /usr/share/secureboot/* /etc/secureboot/
+elif [ -d "/etc/secureboot-keys" ]; then
+    cp -r /etc/secureboot-keys/* /etc/secureboot/
+else
+    echo -e "${RED}Error: Could not find secureboot keys directory${NC}"
+    echo -e "${YELLOW}Keys should be in /usr/share/secureboot or /etc/secureboot-keys${NC}"
+    exit 1
+fi
+
+# Set proper permissions
+chmod -R 600 /etc/secureboot
+chown -R root:root /etc/secureboot
+
+echo -e "${GREEN}Secure Boot keys created successfully!${NC}"
+echo -e "${YELLOW}Next steps:${NC}"
+echo -e "1. Reboot into BIOS/UEFI settings"
+echo -e "2. Enable Secure Boot"
+echo -e "3. Set to Setup Mode (clear existing keys)"
+echo -e "4. Boot back into NixOS"
+echo -e "5. Run 'sudo sbctl status' to verify"
+echo -e "6. Rebuild your NixOS configuration"

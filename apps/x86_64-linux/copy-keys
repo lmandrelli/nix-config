@@ -1,0 +1,52 @@
+#!/bin/sh -e
+
+GREEN='\033[1;32m'
+RED='\033[1;31m'
+YELLOW='\033[1;33m'
+NC='\033[0m'
+
+echo -e "${YELLOW}Copying Secure Boot keys to Lanzaboote directory...${NC}"
+
+# Check if we're running as root
+if [ "$(id -u)" -ne 0 ]; then
+    echo -e "${RED}Error: This script must be run as root (sudo)${NC}"
+    exit 1
+fi
+
+# Check if sbctl keys exist
+if [ ! -d "/usr/share/secureboot" ] && [ ! -d "/etc/secureboot-keys" ]; then
+    echo -e "${RED}Error: No secure boot keys found.${NC}"
+    echo -e "${YELLOW}Please run 'create-keys' script first.${NC}"
+    exit 1
+fi
+
+# Create the PKI bundle directory for Lanzaboote
+echo -e "${YELLOW}Creating /etc/secureboot directory...${NC}"
+mkdir -p /etc/secureboot
+
+# Copy keys from the appropriate location
+if [ -d "/usr/share/secureboot" ]; then
+    echo -e "${YELLOW}Copying keys from /usr/share/secureboot...${NC}"
+    cp -r /usr/share/secureboot/* /etc/secureboot/
+elif [ -d "/etc/secureboot-keys" ]; then
+    echo -e "${YELLOW}Copying keys from /etc/secureboot-keys...${NC}"
+    cp -r /etc/secureboot-keys/* /etc/secureboot/
+fi
+
+# Set proper permissions
+echo -e "${YELLOW}Setting proper permissions...${NC}"
+chmod -R 600 /etc/secureboot
+chown -R root:root /etc/secureboot
+
+# Verify the keys are in place
+echo -e "${YELLOW}Verifying keys...${NC}"
+if [ -f "/etc/secureboot/db.key" ] && [ -f "/etc/secureboot/db.crt" ]; then
+    echo -e "${GREEN}Keys successfully copied to /etc/secureboot${NC}"
+    ls -la /etc/secureboot/
+else
+    echo -e "${RED}Error: Required key files not found in /etc/secureboot${NC}"
+    exit 1
+fi
+
+echo -e "${GREEN}Secure Boot keys copied successfully!${NC}"
+echo -e "${YELLOW}You can now rebuild your NixOS configuration with Lanzaboote.${NC}"
