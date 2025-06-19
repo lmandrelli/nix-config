@@ -24,7 +24,7 @@ let user = "lmandrelli"; in
     # LUKS with TPM2 support - Update the UUID to match your encrypted device
     # To find your LUKS UUID, run: lsblk -f
     initrd.luks.devices."luks-root" = {
-      device = "/dev/disk/by-uuid/YOUR-LUKS-UUID-HERE";
+      device = "/dev/disk/by-uuid/30de2655-2ad4-4652-a842-3b2b5f2626a1";
       crypttabExtraOpts = [ "tpm2-device=auto" "tpm2-pcrs=0+2+7" ];
     };
   };
