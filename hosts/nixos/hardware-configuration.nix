@@ -14,7 +14,7 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/a00411b5-75fa-4f63-8388-5b765ac896fc";
+    { device = "/dev/mapper/luks-root";
       fsType = "ext4";
     };
 
