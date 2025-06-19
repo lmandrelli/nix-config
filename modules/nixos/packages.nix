@@ -62,6 +62,7 @@ shared-packages ++ [
   waybar
   mako
   rofi-wayland
+  wofi
   hyprpaper
   grim
   slurp
@@ -71,6 +72,11 @@ shared-packages ++ [
   networkmanagerapplet
   blueman
   xfce.thunar
+  nautilus
+  
+  # Gaming tools
+  gamemode
+  mangohud
   
   # System tools
   htop

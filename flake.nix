@@ -10,6 +10,11 @@
       url = "github:LnL7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hyprland.url = "github:hyprwm/Hyprland";
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nix-homebrew = {
       url = "github:zhaofengli-wip/nix-homebrew";
     };
@@ -26,7 +31,7 @@
       flake = false;
     };
   };
-  outputs = { self, darwin, nix-homebrew, homebrew-bundle, homebrew-core, homebrew-cask, home-manager, nixpkgs } @inputs:
+  outputs = { self, darwin, nix-homebrew, homebrew-bundle, homebrew-core, homebrew-cask, home-manager, nixpkgs, hyprland, lanzaboote } @inputs:
     let
       user = "lmandrelli";
       linuxSystems = [ "x86_64-linux" "aarch64-linux" ];
@@ -53,6 +58,10 @@
           echo "Running ${scriptName} for ${system}"
           exec ${self}/apps/${system}/${scriptName}
         '')}/bin/${scriptName}";
+        meta = {
+          description = "${scriptName} script for ${system}";
+          platforms = [ system ];
+        };
       };
       mkLinuxApps = system: {
         "apply" = mkApp "apply" system;
@@ -79,7 +88,7 @@
       darwinConfigurations = nixpkgs.lib.genAttrs darwinSystems (system:
         darwin.lib.darwinSystem {
           inherit system;
-          specialArgs = inputs;
+          specialArgs = { inherit inputs; };
           modules = [
             home-manager.darwinModules.home-manager
             nix-homebrew.darwinModules.nix-homebrew
@@ -112,17 +121,19 @@
 
       nixosConfigurations = nixpkgs.lib.genAttrs linuxSystems (system: nixpkgs.lib.nixosSystem {
         inherit system;
-        specialArgs = inputs;
+        specialArgs = { inherit inputs; };
         modules = [
-          home-manager.nixosModules.home-manager {
+          lanzaboote.nixosModules.lanzaboote
+          home-manager.nixosModules.home-manager
+          {
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              extraSpecialArgs = inputs;
-              users.${user} = import ./modules/nixos/home-manager.nix;
+              extraSpecialArgs = { inherit inputs; };
+              users.${user} = ./modules/nixos/home-manager.nix;
             };
           }
-          ./hosts/nixos
+          ./hosts/nixos/default.nix
         ];
      });
   };

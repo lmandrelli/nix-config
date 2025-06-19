@@ -38,6 +38,9 @@ let user = "lmandrelli"; in
     
   ] ++ (import ../../modules/shared/packages.nix { inherit pkgs; });
 
+  # Éditeur par défaut
+  environment.variables.EDITOR = "zed";
+
   system = {
     stateVersion = 4;
 
