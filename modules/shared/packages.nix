@@ -55,7 +55,6 @@ with pkgs; [
   # Rust + Cargo
   rustc
   rustup
-  cargo
 
   # Gradle
   gradle
