@@ -143,6 +143,9 @@ let name = "Luca Mandrelli";
       # Roo Code
       ".roo"
       ".roorules"
+
+      # Zed rules 
+      "AGENT.md"
     ];
 
     extraConfig = {
