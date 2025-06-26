@@ -151,7 +151,7 @@ let name = "Luca Mandrelli";
     extraConfig = {
       init.defaultBranch = "main";
       core = {
-        editor = "zed";
+        editor = "code";
         autocrlf = "input";
       };
       pull.rebase = false;
