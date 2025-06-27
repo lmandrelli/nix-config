@@ -65,6 +65,7 @@ let name = "Luca Mandrelli";
     ignores = [
       # direnv
       ".direnv"
+      ".direnv/"
       ".envrc"
 
       # Linux
@@ -109,9 +110,6 @@ let name = "Luca Mandrelli";
       # Nix
       "result"
       "result-*"
-      ".direnv/"
-      ".pre-commit-config.yaml"
-      "flake.lock"
 
       # Zed
       ".zed/"
