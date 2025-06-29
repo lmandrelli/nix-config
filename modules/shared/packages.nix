@@ -74,4 +74,6 @@ with pkgs; [
   exegol 
 
   tamarin-prover
+
+  claude-code
 ]
